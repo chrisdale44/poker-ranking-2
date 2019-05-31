@@ -1,0 +1,35 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.cardLabel {
+  flex-grow: 1;
+  position: relative;
+  display: inline-block;
+  text-align: right;
+  margin-right: 10px;
+}
+
+.cardLabel > span {
+  position: absolute;
+  color: white;
+  text-transform: capitalize;
+  right: 0;
+  top: -9px;
+}
+
+.handRank {
+  flex-grow: 1;
+  position: relative;
+  margin-left: 10px;
+  text-align: left;
+}
+
+.handRank > span {
+  position: absolute;
+  left: 0;
+  color: white;
+  text-transform: capitalize;
+  top: -9px;
+}
