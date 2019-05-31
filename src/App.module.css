@@ -1,5 +1,4 @@
 .container {
-  background-color: darkgreen;
   padding: 20px 0;
   text-align: center;
 }
@@ -7,4 +6,19 @@
 h1 {
   color: white;
   text-align: center;
+}
+
+.dealer {
+  border: 1px solid white;
+  background-color: #202020;
+  color: white;
+  padding: 10px;
+  border-radius: none;
+  font-size: 16px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.dealer:hover {
+  background-color: #303030;
 }

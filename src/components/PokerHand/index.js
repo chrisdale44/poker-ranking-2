@@ -4,8 +4,8 @@ import styles from "./index.module.css";
 import { HAND_RANKS } from "../../constants";
 import Card from "./Card";
 
-export default function PokerHand({ id, hand, rank, onChange }) {
-  console.log(hand);
+export default function PokerHand({ id, cards, ranking, onChange }) {
+  console.log(ranking);
   const handleCardChange = ({ ...args }) => {
     onChange({ ...args, playerId: id });
   };
@@ -15,17 +15,17 @@ export default function PokerHand({ id, hand, rank, onChange }) {
       <div className={styles.cardLabel}>
         <span>Player {id}</span>
       </div>
-      {hand.map((card, i) => (
+      {cards.map((card, i) => (
         <Card key={i} card={card} id={i} onChange={handleCardChange} />
       ))}
       <div className={styles.handRank}>
-        <span>{HAND_RANKS[rank]}</span>
+        <span>{HAND_RANKS[ranking]}</span>
       </div>
     </div>
   );
 }
 
 PokerHand.propTypes = {
-  hand: PropTypes.array.isRequired,
+  cards: PropTypes.array.isRequired,
   onChange: PropTypes.func.isRequired
 };

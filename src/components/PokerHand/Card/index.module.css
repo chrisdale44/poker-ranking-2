@@ -1,7 +1,7 @@
 .wrapper {
   flex-grow: 0;
   display: inline-block;
-  padding: 5px;
+  padding: 12px 5px;
 }
 
 .value {
@@ -36,7 +36,7 @@
 
 .value > select {
   font-size: 20px;
-  padding: 20px 6px;
+  padding: 25px 6px;
   width: 130%;
   border: none;
   box-shadow: none;

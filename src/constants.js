@@ -1,4 +1,4 @@
-export const NO_OF_PLAYERS = 2;
+export const NO_OF_PLAYERS = 3;
 
 export const CARDS_PER_HAND = 5;
 
