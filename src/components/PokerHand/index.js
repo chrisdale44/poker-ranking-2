@@ -5,7 +5,7 @@ import { HAND_RANKS } from "../../constants";
 import Card from "./Card";
 
 export default function PokerHand({ id, cards, ranking, onChange }) {
-  console.log(ranking);
+  // console.log(ranking);
   const handleCardChange = ({ ...args }) => {
     onChange({ ...args, playerId: id });
   };
