@@ -8,6 +8,11 @@ export const RESULT = {
   tie: 3
 };
 
+const TEN = "T";
+const JACK = "J";
+const QUEEN = "Q";
+const KING = "K";
+export const ACE = "A";
 export const CARD_VALUES = [
   "2",
   "3",
@@ -17,20 +22,24 @@ export const CARD_VALUES = [
   "7",
   "8",
   "9",
-  "T",
-  "J",
-  "Q",
-  "K",
-  "A"
+  TEN,
+  JACK,
+  QUEEN,
+  KING,
+  ACE
 ];
 
-export const SUITS = ["S", "H", "D", "C"];
+const SPADES = "SPADES";
+const HEARTS = "HEARTS";
+const DIAMONDS = "DIAMONDS";
+const CLUBS = "CLUBS";
+export const SUITS = [SPADES, HEARTS, DIAMONDS, CLUBS];
 
 export const SUIT_ICONS = {
-  S: "♠️",
-  H: "♥️",
-  D: "♦️",
-  C: "♣️"
+  SPADES: "♠️",
+  HEARTS: "♥️",
+  DIAMONDS: "♦️",
+  CLUBS: "♣️"
 };
 
 export const HAND_RANKS = [

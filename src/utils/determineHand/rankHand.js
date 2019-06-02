@@ -1,7 +1,7 @@
 import { CARD_VALUES } from "../../constants";
 
-export default function rankHand(hand) {
-  const { pairs, threeOfAKind, fourOfAKind, straight, flush, values } = hand;
+export default function rankHand(hand, values) {
+  const { pairs, threeOfAKind, fourOfAKind, straight, flush } = hand;
 
   if (pairs.length === 1 && !threeOfAKind.length) {
     hand.ranking = 1; // pair

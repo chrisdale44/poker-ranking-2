@@ -1,26 +1,16 @@
-import { CARD_VALUES } from "../../constants";
+import { CARD_VALUES, ACE } from "../../constants";
 
 export default function isStraight(values) {
-  let straight = true;
-  values.forEach((value, i) => {
-    if (i >= values.length - 1) {
-      return false;
-    }
-    const straight_next_i = CARD_VALUES.indexOf(value) + 1;
-    const hand_next_i = CARD_VALUES.indexOf(values[i + 1]);
+  for (let i = 0; i < values.length - 1; i++) {
+    const value = values[i];
+    const expectedNextCard = CARD_VALUES[CARD_VALUES.indexOf(value) + 1];
+    const actualNextCard = values[i + 1];
 
-    if (hand_next_i !== straight_next_i) {
-      if (
-        i === 3 &&
-        straight_next_i === 4 &&
-        hand_next_i === CARD_VALUES.length - 1
-      ) {
+    if (expectedNextCard !== actualNextCard) {
+      if (!(i === 3 && expectedNextCard === "6" && actualNextCard === ACE)) {
         return false;
       }
-      straight = false;
-      return false;
     }
-  });
-
-  return straight;
+  }
+  return true;
 }

@@ -49,8 +49,8 @@
   outline: none;
 }
 
-select.H,
-select.D {
+select.HEARTS,
+select.DIAMONDS {
   color: red;
 }
 

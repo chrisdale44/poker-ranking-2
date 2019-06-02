@@ -5,7 +5,7 @@ import { NO_OF_PLAYERS } from "./constants";
 import generateHand from "./utils/generateHand";
 import determineHand from "./utils/determineHand";
 import styles from "./App.module.css";
-import determineWinner from "./utils/determineWinner";
+// import determineWinners from "./utils/determineWinners";
 class App extends Component {
   state = {};
   dealCards = () => {
@@ -20,9 +20,12 @@ class App extends Component {
       });
     }
 
-    const result = determineWinner(players);
+    console.log(players);
 
-    this.setState({ players: players, result: result });
+    const winningPlayer = 1;
+    // const winningPlayer = determineWinners(players);
+
+    this.setState({ players: players, winningPlayer: winningPlayer });
   };
 
   handleCardChange = ({ playerId, cardId, event }) => {

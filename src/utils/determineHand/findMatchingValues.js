@@ -1,7 +1,7 @@
 import countBy from "lodash.countby";
 import forOwn from "lodash.forown";
 
-export default function determinePairs(values) {
+export default function findMatchingValues(values) {
   const matchingValues = countBy(values);
   const result = {
     pairs: [],
@@ -11,17 +11,17 @@ export default function determinePairs(values) {
 
   forOwn(matchingValues, (count, cardValue) => {
     switch (count) {
-      case 2: // pair
+      case 2:
         result.pairs.push(cardValue);
         break;
-      case 3: // three of a kind
+      case 3:
         result.threeOfAKind.push(cardValue);
         break;
-      case 4: // four of a kind
+      case 4:
         result.fourOfAKind.push(cardValue);
         break;
       default:
-        return null;
+        return;
     }
   });
 
