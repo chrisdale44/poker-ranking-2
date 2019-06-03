@@ -1,90 +1,84 @@
-export default function compareHands() {
-  switch (hand_a.rank) {
-    case 1:
-      // compare pairs
-      result = compareValues(hand_a.pairs[0], hand_b.pairs[0]);
+import compareKickers from "./compareKickers";
+import compareValues from "./compareValues";
+import getHighestValue from "./getHighestValue";
+import { HAND_RANKS, TIE } from "../../constants";
+const {
+  HIGH_CARD,
+  PAIR,
+  TWO_PAIR,
+  THREE_OAK,
+  STRAIGHT,
+  FLUSH,
+  FULL_HOUSE,
+  FOUR_OAK,
+  STRAIGHT_FLUSH,
+  ROYAL_FLUSH
+} = HAND_RANKS;
 
+export default function compareHands(player_a, player_b) {
+  let result;
+  switch (player_a.hand.ranking.name) {
+    case HIGH_CARD:
+      return compareKickers(player_a.cards, player_b.cards);
+    case PAIR:
+      result = compareValues(player_a.hand.pairs[0], player_b.hand.pairs[0]);
       if (result !== 3) {
         return result;
-      } else {
-        // compare kickers
-        return compareKickers();
       }
-    case 2:
-      // compare top pairs
-      result = compareValues(hand_a.pairs[1], hand_b.pairs[1]);
-
-      if (result !== 3) {
-        return result;
-      } else {
-        // compare second pairs
-        result = compareValues(hand_a.pairs[0], hand_b.pairs[0]);
+      return compareKickers(player_a.cards, player_b.cards);
+    case TWO_PAIR:
+      for (let i = 1; i >= 0; i--) {
+        result = compareValues(player_a.hand.pairs[i], player_b.hand.pairs[i]);
         if (result !== 3) {
           return result;
-        } else {
-          // compare kickers
-          return compareKickers();
         }
       }
-    case 3:
-      // compare three of a kinds
-      result = compareValues(hand_a.threes[0], hand_b.threes[0]);
+      return compareKickers(player_a.cards, player_b.cards);
+    case THREE_OAK:
+      result = compareValues(player_a.hand.threes[0], player_b.hand.threes[0]);
+      if (result !== 3) {
+        return result;
+      }
+      return compareKickers(player_a.cards, player_b.cards);
+    case STRAIGHT:
+      // if (
+      //   i === 3 &&
+      //   straight_next_i === 4 &&
+      //   hand_next_i === constants.VALUES.length - 1
+      // ) {
+      //   return false;
+      // }
+      // TODO: handle 5 high straights
+      return compareValues(
+        getHighestValue(player_a.hand),
+        getHighestValue(player_b.hand)
+      );
+    case FLUSH:
+      return compareKickers(player_a.cards, player_b.cards);
+    case FULL_HOUSE:
+      result = compareValues(player_a.hand.threes[0], player_b.hand.threes[0]);
+      if (result !== 3) {
+        return result;
+      }
+      result = compareValues(player_a.hand.pairs[0], player_b.hand.pairs[0]);
+      if (result === 3) {
+        return result;
+      }
+      return compareKickers(player_a.cards, player_b.cards);
+    case FOUR_OAK:
+      result = compareValues(player_a.hand.fours[0], player_a.hand.fours[0]);
 
       if (result !== 3) {
         return result;
-      } else {
-        // compare kickers
-        return compareKickers();
       }
-    case 4:
-      // compare top card of straights
-      if (
-        i === 3 &&
-        straight_next_i === 4 &&
-        hand_next_i === constants.VALUES.length - 1
-      ) {
-        return false;
-      }
-      return compareValues(hand_a.values[4], hand_b.values[4]);
-    case 5:
-      // compare top card of flushes
-      return compareKickers();
-    case 6:
-      // compare full houses
-      // compare three of a kinds
-      result = compareValues(hand_a.threes[0], hand_b.threes[0]);
-
-      if (result !== 3) {
-        return result;
-      } else {
-        // compare pairs
-        result = compareValues(hand_a.pairs[0], hand_b.pairs[0]);
-        if (result !== 3) {
-          return result;
-        } else {
-          // compare kickers
-          return compareKickers();
-        }
-      }
-    case 7:
-      // compare four of a kinds
-      result = compareValues(hand_a.fours[0], hand_b.fours[0]);
-
-      if (result !== 3) {
-        return result;
-      } else {
-        // compare kickers
-        return compareKickers();
-      }
-    case 8:
-      // compare top card of straight flushes
-      return compareValues(hand_a.values[4], hand_b.values[4]);
-    case 9:
-      // we know Royal flushes are equal
-      return constants.RESULT.tie;
-    case 0:
-      // compare high card
-      return compareKickers();
+      return compareKickers(player_a.cards, player_b.cards);
+    case STRAIGHT_FLUSH:
+      return compareValues(
+        getHighestValue(player_a.hand),
+        getHighestValue(player_b.hand)
+      );
+    case ROYAL_FLUSH:
+      return TIE;
     default:
       return false;
   }

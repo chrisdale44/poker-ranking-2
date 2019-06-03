@@ -42,15 +42,45 @@ export const SUIT_ICONS = {
   CLUBS: "♣️"
 };
 
-export const HAND_RANKS = [
-  "highcard",
-  "pair",
-  "two pair",
-  "three of a kind",
-  "straight",
-  "flush",
-  "full house",
-  "four of a kind",
-  "straight flush",
-  "royal flush"
-];
+export const HAND_RANKS = {
+  HIGH_CARD: {
+    name: "high card",
+    score: 0
+  },
+  PAIR: {
+    name: "pair",
+    score: 1
+  },
+  TWO_PAIR: {
+    name: "two pair",
+    score: 2
+  },
+  THREE_OAK: {
+    name: "three of a kind",
+    score: 3
+  },
+  STRAIGHT: {
+    name: "straight",
+    score: 4
+  },
+  FLUSH: {
+    name: "flush",
+    score: 5
+  },
+  FULL_HOUSE: {
+    name: "full house",
+    score: 6
+  },
+  FOUR_OAK: {
+    name: "four of a kind",
+    score: 7
+  },
+  STRAIGHT_FLUSH: {
+    name: "straight flush",
+    score: 8
+  },
+  ROYAL_FLUSH: {
+    name: "royal flush",
+    score: 9
+  }
+};

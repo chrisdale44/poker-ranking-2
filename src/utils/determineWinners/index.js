@@ -1,24 +1,36 @@
-import getRankings from "./getRankings";
 import getIndexesOf from "./getIndexesOf";
-import getMaxRank from "./getMaxRank";
-import getHands from "./getHands";
+import getHighestValue from "./getHighestValue";
 import compareHands from "./compareHands";
 import doCardsMatch from "./doCardsMatch";
-import { RESULT } from "../constants";
+import { LOSS, TIE } from "../../constants";
 
 export default function determineWinners(players) {
-  const rankings = getRankings(players);
-  const highestRank = getMaxRank(rankings);
-  const winningIds = getIndexesOf(rankings, highestRank);
+  const rankings = players.map(({ hand }) => hand.ranking);
+  const highestRank = getHighestValue(rankings);
+  const winningPlayerIds = getIndexesOf(rankings, highestRank);
 
-  if (winningIds.length > 1) {
-    const hands = getHands(players, winningIds);
-    if (doCardsMatch(hands)) {
-      return RESULT.tie;
+  if (winningPlayerIds.length > 1) {
+    const winningPlayers = winningPlayerIds.map(id => {
+      return players.find(x => x.id === id);
+    });
+    if (doCardsMatch(winningPlayers.map(player => player.cards))) {
+      return winningPlayerIds;
     }
 
-    compareHands(hands);
-  } else {
-    return winningIds[0];
+    let winners = [players[0]];
+    for (let i = 0; i < winningPlayers.length - 1; i++) {
+      const contendor = players[i + 1];
+
+      const result = compareHands(winners, contendor);
+      if (result === LOSS) {
+        winners = [contendor];
+      } else if (result === TIE) {
+        winners.push(contendor);
+      }
+    }
+
+    return winners.map(player => player.id);
   }
+
+  return winningPlayerIds;
 }

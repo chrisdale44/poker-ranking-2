@@ -1,23 +1,21 @@
 import isFlush from "./isFlush";
 import isStraight from "./isStraight";
 import findMatchingValues from "./findMatchingValues";
-import rankHand from "./rankHand";
 import sortValuesNumerically from "./sortValuesNumerically";
+import getCardValues from "../getCardValues";
+import getCardSuits from "../getCardSuits";
+import rankHand from "../rankHand";
 
 export default function determineHand(cards) {
-  const values = sortValuesNumerically(cards.map(card => card.value));
-  const suits = cards.map(card => card.suit);
-  let hand = {
+  const values = sortValuesNumerically(getCardValues(cards));
+  const suits = getCardSuits(cards);
+
+  const hand = {
     flush: isFlush(suits),
     straight: isStraight(values),
-    pairs: [],
-    threeOfAKind: [],
-    fourOfAKind: []
+    ...findMatchingValues(values)
   };
 
-  if (!hand.flush && !hand.straight) {
-    hand = { ...hand, ...findMatchingValues(values) };
-  }
-
-  return rankHand(hand);
+  hand.ranking = rankHand(hand);
+  return hand;
 }

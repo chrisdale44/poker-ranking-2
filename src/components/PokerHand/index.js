@@ -1,11 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styles from "./index.module.css";
-import { HAND_RANKS } from "../../constants";
 import Card from "./Card";
 
 export default function PokerHand({ id, cards, ranking, onChange }) {
-  // console.log(ranking);
   const handleCardChange = ({ ...args }) => {
     onChange({ ...args, playerId: id });
   };
@@ -19,13 +17,15 @@ export default function PokerHand({ id, cards, ranking, onChange }) {
         <Card key={i} card={card} id={i} onChange={handleCardChange} />
       ))}
       <div className={styles.handRank}>
-        <span>{HAND_RANKS[ranking]}</span>
+        <span>{ranking.name}</span>
       </div>
     </div>
   );
 }
 
 PokerHand.propTypes = {
+  id: PropTypes.number.isRequired,
   cards: PropTypes.array.isRequired,
-  onChange: PropTypes.func.isRequired
+  onChange: PropTypes.func.isRequired,
+  ranking: PropTypes.object.isRequired
 };

@@ -5,6 +5,7 @@ import { NO_OF_PLAYERS } from "./constants";
 import generateHand from "./utils/generateHand";
 import determineHand from "./utils/determineHand";
 import styles from "./App.module.css";
+import rankHand from "./utils/rankHand";
 // import determineWinners from "./utils/determineWinners";
 class App extends Component {
   state = {};
@@ -14,7 +15,7 @@ class App extends Component {
     for (let i = 0; i < NO_OF_PLAYERS; i++) {
       const cards = generateHand();
       players.push({
-        id: i + 1,
+        id: i,
         cards,
         hand: determineHand(cards)
       });
@@ -46,11 +47,10 @@ class App extends Component {
 
   render() {
     const { players } = this.state;
-    // console.log(this.state);
 
     return (
       <div className={styles.container}>
-        <h1>Texas Hold'em</h1>
+        <h1>Poker Hand Comparison</h1>
         {players &&
           players.map(({ cards, id, hand }) => (
             <PokerHand

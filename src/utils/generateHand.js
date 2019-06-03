@@ -3,11 +3,9 @@ import randomNumberGenerator from "./randomNumberGenerator";
 
 export default function generateHand() {
   const hand = [];
-
   for (var j = 0; j < CARDS_PER_HAND; j++) {
     hand.push(generateCard());
   }
-
   return hand;
 }
 
