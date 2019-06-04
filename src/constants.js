@@ -2,11 +2,9 @@ export const NO_OF_PLAYERS = 3;
 
 export const CARDS_PER_HAND = 5;
 
-export const RESULT = {
-  win: 1,
-  loss: 2,
-  tie: 3
-};
+export const WIN = 1;
+export const LOSS = 2;
+export const TIE = 3;
 
 const TEN = "T";
 const JACK = "J";

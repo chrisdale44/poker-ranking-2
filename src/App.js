@@ -5,7 +5,6 @@ import { NO_OF_PLAYERS } from "./constants";
 import generateHand from "./utils/generateHand";
 import determineHand from "./utils/determineHand";
 import styles from "./App.module.css";
-import rankHand from "./utils/rankHand";
 // import determineWinners from "./utils/determineWinners";
 class App extends Component {
   state = {};
