@@ -17,10 +17,13 @@ const {
 export default function compareHands(player_a, player_b) {
   let result;
   switch (player_a.hand.ranking.name) {
-    case HIGH_CARD:
-      return compareKickers(player_a.ascendingValues, player_b.ascendingValues);
+    case HIGH_CARD.name:
+      return compareKickers(
+        player_a.hand.ascendingValues,
+        player_b.hand.ascendingValues
+      );
 
-    case PAIR:
+    case PAIR.name:
       result = compareValues(
         CARD_VALUES.indexOf(player_a.hand.pairs[0]),
         CARD_VALUES.indexOf(player_b.hand.pairs[0])
@@ -28,9 +31,12 @@ export default function compareHands(player_a, player_b) {
       if (result !== 3) {
         return result;
       }
-      return compareKickers(player_a.ascendingValues, player_b.ascendingValues);
+      return compareKickers(
+        player_a.hand.ascendingValues,
+        player_b.hand.ascendingValues
+      );
 
-    case TWO_PAIR:
+    case TWO_PAIR.name:
       for (let i = 1; i >= 0; i--) {
         result = compareValues(
           CARD_VALUES.indexOf(player_a.hand.pairs[i]),
@@ -40,9 +46,12 @@ export default function compareHands(player_a, player_b) {
           return result;
         }
       }
-      return compareKickers(player_a.ascendingValues, player_b.ascendingValues);
+      return compareKickers(
+        player_a.hand.ascendingValues,
+        player_b.hand.ascendingValues
+      );
 
-    case THREE_OAK:
+    case THREE_OAK.name:
       result = compareValues(
         CARD_VALUES.indexOf(player_a.hand.threeOfAKind[0]),
         CARD_VALUES.indexOf(player_b.hand.threeOfAKind[0])
@@ -50,15 +59,24 @@ export default function compareHands(player_a, player_b) {
       if (result !== 3) {
         return result;
       }
-      return compareKickers(player_a.ascendingValues, player_b.ascendingValues);
+      return compareKickers(
+        player_a.hand.ascendingValues,
+        player_b.hand.ascendingValues
+      );
 
-    case STRAIGHT:
-      return compareKickers(player_a.ascendingValues, player_b.ascendingValues);
+    case STRAIGHT.name:
+      return compareKickers(
+        player_a.hand.ascendingValues,
+        player_b.hand.ascendingValues
+      );
 
-    case FLUSH:
-      return compareKickers(player_a.ascendingValues, player_b.ascendingValues);
+    case FLUSH.name:
+      return compareKickers(
+        player_a.hand.ascendingValues,
+        player_b.hand.ascendingValues
+      );
 
-    case FULL_HOUSE:
+    case FULL_HOUSE.name:
       result = compareValues(
         CARD_VALUES.indexOf(player_a.hand.threeOfAKind[0]),
         CARD_VALUES.indexOf(player_b.hand.threeOfAKind[0])
@@ -71,7 +89,7 @@ export default function compareHands(player_a, player_b) {
         CARD_VALUES.indexOf(player_b.hand.pairs[0])
       );
 
-    case FOUR_OAK:
+    case FOUR_OAK.name:
       result = compareValues(
         CARD_VALUES.indexOf(player_a.hand.fourOfAKind[0]),
         CARD_VALUES.indexOf(player_b.hand.fourOfAKind[0])
@@ -79,12 +97,18 @@ export default function compareHands(player_a, player_b) {
       if (result !== 3) {
         return result;
       }
-      return compareKickers(player_a.ascendingValues, player_b.ascendingValues);
+      return compareKickers(
+        player_a.hand.ascendingValues,
+        player_b.hand.ascendingValues
+      );
 
-    case STRAIGHT_FLUSH:
-      return compareKickers(player_a.ascendingValues, player_b.ascendingValues);
+    case STRAIGHT_FLUSH.name:
+      return compareKickers(
+        player_a.hand.ascendingValues,
+        player_b.hand.ascendingValues
+      );
 
-    case ROYAL_FLUSH:
+    case ROYAL_FLUSH.name:
       return TIE;
 
     default:

@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import PokerHand from "./components/PokerHand";
-// import Result from "../components/Result";
+import Result from "./components/Result";
 import { NO_OF_PLAYERS } from "./constants";
 import generateHand from "./utils/generateHand";
 import determineHand from "./utils/determineHand";
 import styles from "./App.module.css";
-// import determineWinners from "./utils/determineWinners";
+import determineWinners from "./utils/determineWinners";
 class App extends Component {
   state = {};
   dealCards = () => {
@@ -22,8 +22,7 @@ class App extends Component {
 
     console.log(players);
 
-    const winningPlayer = 1;
-    // const winningPlayer = determineWinners(players);
+    const winningPlayer = determineWinners(players);
 
     this.setState({ players: players, winningPlayer: winningPlayer });
   };
@@ -40,12 +39,14 @@ class App extends Component {
       player.cards[cardId][name] = value;
       player.hand = determineHand(player.cards);
 
+      newState.winningPlayer = determineWinners(newState.players);
+
       return newState;
     });
   };
 
   render() {
-    const { players } = this.state;
+    const { players, winningPlayer } = this.state;
 
     return (
       <div className={styles.container}>
@@ -60,7 +61,7 @@ class App extends Component {
               onChange={this.handleCardChange}
             />
           ))}
-        {/* <Result result={this.getResultText(result)} /> */}
+        {winningPlayer && <Result winner={winningPlayer} />}
         <button className={styles.dealer} onClick={this.dealCards}>
           Deal new hand
         </button>
