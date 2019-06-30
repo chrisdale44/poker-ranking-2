@@ -1,5 +1,5 @@
-import { CARDS_PER_HAND, CARD_VALUES, SUITS } from "../constants";
-import randomNumberGenerator from "./randomNumberGenerator";
+import { CARDS_PER_HAND } from "../constants";
+import generateCard from "./generateCard";
 
 export default function generateHand() {
   const hand = [];
@@ -7,11 +7,4 @@ export default function generateHand() {
     hand.push(generateCard());
   }
   return hand;
-}
-
-function generateCard() {
-  return {
-    value: CARD_VALUES[randomNumberGenerator(0, CARD_VALUES.length - 1)],
-    suit: SUITS[randomNumberGenerator(0, SUITS.length - 1)]
-  };
 }
