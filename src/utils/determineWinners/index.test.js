@@ -16,7 +16,9 @@ describe("UTIL: determineWinner", () => {
           flush: true,
           fourOfAKind: [],
           pairs: [],
-          ranking: 5,
+          ranking: {
+            score: 5
+          },
           straight: false,
           threeOfAKind: []
         }
@@ -34,7 +36,9 @@ describe("UTIL: determineWinner", () => {
           flush: false,
           fourOfAKind: [],
           pairs: [],
-          ranking: 0,
+          ranking: {
+            score: 0
+          },
           straight: false,
           threeOfAKind: []
         }
@@ -52,7 +56,9 @@ describe("UTIL: determineWinner", () => {
           flush: false,
           fourOfAKind: [],
           pairs: [],
-          ranking: 0,
+          ranking: {
+            score: 0
+          },
           straight: false,
           threeOfAKind: []
         }
@@ -76,7 +82,9 @@ describe("UTIL: determineWinner", () => {
           flush: true,
           fourOfAKind: [],
           pairs: [],
-          ranking: 5,
+          ranking: {
+            score: 5
+          },
           straight: false,
           threeOfAKind: []
         }
@@ -94,7 +102,9 @@ describe("UTIL: determineWinner", () => {
           flush: true,
           fourOfAKind: [],
           pairs: [],
-          ranking: 5,
+          ranking: {
+            score: 5
+          },
           straight: false,
           threeOfAKind: []
         }
@@ -112,7 +122,9 @@ describe("UTIL: determineWinner", () => {
           flush: false,
           fourOfAKind: [],
           pairs: [],
-          ranking: 0,
+          ranking: {
+            score: 0
+          },
           straight: false,
           threeOfAKind: []
         }

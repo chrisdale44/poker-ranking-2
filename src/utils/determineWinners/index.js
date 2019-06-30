@@ -8,7 +8,6 @@ export default function determineWinners(players) {
   const rankings = players.map(({ hand }) => hand.ranking.score);
   const highestRank = getHighestValue(rankings);
   const winningPlayerIds = getIndexesOf(rankings, highestRank);
-  console.log(rankings, highestRank, winningPlayerIds);
 
   if (winningPlayerIds.length > 1) {
     const winningPlayers = winningPlayerIds.map(id => {
@@ -23,9 +22,8 @@ export default function determineWinners(players) {
     let winners = [winningPlayers[0]];
     for (let i = 0; i < winningPlayers.length - 1; i++) {
       const contendor = winningPlayers[i + 1];
-      console.log(contendor);
-
       const result = compareHands(winners[0], contendor);
+
       if (result === LOSS) {
         winners = [contendor];
       } else if (result === TIE) {

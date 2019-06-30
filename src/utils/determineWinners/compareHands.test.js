@@ -19,17 +19,13 @@ describe("UTIL: compareHands", () => {
       const player_a = {
         hand: {
           ascendingValues: ["4", "9", "T", "Q", "A"],
-          ranking: {
-            name: HIGH_CARD
-          }
+          ranking: HIGH_CARD
         }
       };
       const player_b = {
         hand: {
           ascendingValues: ["4", "5", "9", "T", "Q"],
-          ranking: {
-            name: HIGH_CARD
-          }
+          ranking: HIGH_CARD
         }
       };
       expect(compareHands(player_a, player_b)).toEqual(WIN);
@@ -39,17 +35,13 @@ describe("UTIL: compareHands", () => {
       const player_a = {
         hand: {
           ascendingValues: ["2", "4", "9", "T", "Q"],
-          ranking: {
-            name: HIGH_CARD
-          }
+          ranking: HIGH_CARD
         }
       };
       const player_b = {
         hand: {
           ascendingValues: ["4", "5", "9", "T", "Q"],
-          ranking: {
-            name: HIGH_CARD
-          }
+          ranking: HIGH_CARD
         }
       };
       expect(compareHands(player_a, player_b)).toEqual(LOSS);
@@ -59,17 +51,13 @@ describe("UTIL: compareHands", () => {
       const player_a = {
         hand: {
           ascendingValues: ["4", "5", "9", "T", "Q"],
-          ranking: {
-            name: HIGH_CARD
-          }
+          ranking: HIGH_CARD
         }
       };
       const player_b = {
         hand: {
           ascendingValues: ["4", "5", "9", "T", "Q"],
-          ranking: {
-            name: HIGH_CARD
-          }
+          ranking: HIGH_CARD
         }
       };
       expect(compareHands(player_a, player_b)).toEqual(TIE);
@@ -81,17 +69,13 @@ describe("UTIL: compareHands", () => {
       const player_a = {
         hand: {
           pairs: ["Q"],
-          ranking: {
-            name: PAIR
-          }
+          ranking: PAIR
         }
       };
       const player_b = {
         hand: {
           pairs: ["T"],
-          ranking: {
-            name: PAIR
-          }
+          ranking: PAIR
         }
       };
       expect(compareHands(player_a, player_b)).toEqual(WIN);
@@ -101,17 +85,13 @@ describe("UTIL: compareHands", () => {
       const player_a = {
         hand: {
           pairs: ["4"],
-          ranking: {
-            name: PAIR
-          }
+          ranking: PAIR
         }
       };
       const player_b = {
         hand: {
           pairs: ["9"],
-          ranking: {
-            name: PAIR
-          }
+          ranking: PAIR
         }
       };
       expect(compareHands(player_a, player_b)).toEqual(LOSS);
@@ -122,18 +102,14 @@ describe("UTIL: compareHands", () => {
         hand: {
           ascendingValues: ["9", "T", "Q", "Q", "A"],
           pairs: ["Q"],
-          ranking: {
-            name: PAIR
-          }
+          ranking: PAIR
         }
       };
       const player_b = {
         hand: {
           ascendingValues: ["7", "T", "Q", "Q", "A"],
           pairs: ["Q"],
-          ranking: {
-            name: PAIR
-          }
+          ranking: PAIR
         }
       };
       expect(compareHands(player_a, player_b)).toEqual(WIN);
@@ -144,18 +120,14 @@ describe("UTIL: compareHands", () => {
         hand: {
           ascendingValues: ["4", "4", "5", "6", "8"],
           pairs: ["4"],
-          ranking: {
-            name: PAIR
-          }
+          ranking: PAIR
         }
       };
       const player_b = {
         hand: {
           ascendingValues: ["4", "4", "T", "Q", "K"],
           pairs: ["4"],
-          ranking: {
-            name: PAIR
-          }
+          ranking: PAIR
         }
       };
       expect(compareHands(player_a, player_b)).toEqual(LOSS);
@@ -166,18 +138,14 @@ describe("UTIL: compareHands", () => {
         hand: {
           ascendingValues: ["4", "9", "T", "T", "Q"],
           pairs: ["T"],
-          ranking: {
-            name: PAIR
-          }
+          ranking: PAIR
         }
       };
       const player_b = {
         hand: {
           ascendingValues: ["4", "9", "T", "T", "Q"],
           pairs: ["T"],
-          ranking: {
-            name: PAIR
-          }
+          ranking: PAIR
         }
       };
       expect(compareHands(player_a, player_b)).toEqual(TIE);
@@ -189,17 +157,13 @@ describe("UTIL: compareHands", () => {
       const player_a = {
         hand: {
           pairs: ["8", "T"],
-          ranking: {
-            name: TWO_PAIR
-          }
+          ranking: TWO_PAIR
         }
       };
       const player_b = {
         hand: {
           pairs: ["8", "9"],
-          ranking: {
-            name: TWO_PAIR
-          }
+          ranking: TWO_PAIR
         }
       };
       expect(compareHands(player_a, player_b)).toEqual(WIN);
@@ -209,17 +173,13 @@ describe("UTIL: compareHands", () => {
       const player_a = {
         hand: {
           pairs: ["9", "T"],
-          ranking: {
-            name: TWO_PAIR
-          }
+          ranking: TWO_PAIR
         }
       };
       const player_b = {
         hand: {
           pairs: ["9", "K"],
-          ranking: {
-            name: TWO_PAIR
-          }
+          ranking: TWO_PAIR
         }
       };
       expect(compareHands(player_a, player_b)).toEqual(LOSS);
@@ -229,17 +189,13 @@ describe("UTIL: compareHands", () => {
       const player_a = {
         hand: {
           pairs: ["9", "T"],
-          ranking: {
-            name: TWO_PAIR
-          }
+          ranking: TWO_PAIR
         }
       };
       const player_b = {
         hand: {
           pairs: ["8", "T"],
-          ranking: {
-            name: TWO_PAIR
-          }
+          ranking: TWO_PAIR
         }
       };
       expect(compareHands(player_a, player_b)).toEqual(WIN);
@@ -249,17 +205,13 @@ describe("UTIL: compareHands", () => {
       const player_a = {
         hand: {
           pairs: ["4", "T"],
-          ranking: {
-            name: TWO_PAIR
-          }
+          ranking: TWO_PAIR
         }
       };
       const player_b = {
         hand: {
           pairs: ["9", "T"],
-          ranking: {
-            name: TWO_PAIR
-          }
+          ranking: TWO_PAIR
         }
       };
       expect(compareHands(player_a, player_b)).toEqual(LOSS);
@@ -270,18 +222,14 @@ describe("UTIL: compareHands", () => {
         hand: {
           ascendingValues: ["4", "4", "T", "T", "A"],
           pairs: ["4", "T"],
-          ranking: {
-            name: TWO_PAIR
-          }
+          ranking: TWO_PAIR
         }
       };
       const player_b = {
         hand: {
           ascendingValues: ["4", "4", "T", "T", "Q"],
           pairs: ["4", "T"],
-          ranking: {
-            name: TWO_PAIR
-          }
+          ranking: TWO_PAIR
         }
       };
       expect(compareHands(player_a, player_b)).toEqual(WIN);
@@ -292,18 +240,14 @@ describe("UTIL: compareHands", () => {
         hand: {
           ascendingValues: ["4", "9", "9", "Q", "Q"],
           pairs: ["9", "Q"],
-          ranking: {
-            name: TWO_PAIR
-          }
+          ranking: TWO_PAIR
         }
       };
       const player_b = {
         hand: {
           ascendingValues: ["5", "9", "9", "Q", "Q"],
           pairs: ["9", "Q"],
-          ranking: {
-            name: TWO_PAIR
-          }
+          ranking: TWO_PAIR
         }
       };
       expect(compareHands(player_a, player_b)).toEqual(LOSS);
@@ -314,18 +258,14 @@ describe("UTIL: compareHands", () => {
         hand: {
           ascendingValues: ["4", "9", "9", "Q", "Q"],
           pairs: ["9", "Q"],
-          ranking: {
-            name: TWO_PAIR
-          }
+          ranking: TWO_PAIR
         }
       };
       const player_b = {
         hand: {
           ascendingValues: ["4", "9", "9", "Q", "Q"],
           pairs: ["9", "Q"],
-          ranking: {
-            name: TWO_PAIR
-          }
+          ranking: TWO_PAIR
         }
       };
       expect(compareHands(player_a, player_b)).toEqual(TIE);
@@ -337,17 +277,13 @@ describe("UTIL: compareHands", () => {
       const player_a = {
         hand: {
           threeOfAKind: ["9"],
-          ranking: {
-            name: THREE_OAK
-          }
+          ranking: THREE_OAK
         }
       };
       const player_b = {
         hand: {
           threeOfAKind: ["8"],
-          ranking: {
-            name: THREE_OAK
-          }
+          ranking: THREE_OAK
         }
       };
       expect(compareHands(player_a, player_b)).toEqual(WIN);
@@ -357,17 +293,13 @@ describe("UTIL: compareHands", () => {
       const player_a = {
         hand: {
           threeOfAKind: ["Q"],
-          ranking: {
-            name: THREE_OAK
-          }
+          ranking: THREE_OAK
         }
       };
       const player_b = {
         hand: {
           threeOfAKind: ["A"],
-          ranking: {
-            name: THREE_OAK
-          }
+          ranking: THREE_OAK
         }
       };
       expect(compareHands(player_a, player_b)).toEqual(LOSS);
@@ -378,18 +310,14 @@ describe("UTIL: compareHands", () => {
         hand: {
           ascendingValues: ["9", "9", "9", "J", "Q"],
           threeOfAKind: ["9"],
-          ranking: {
-            name: THREE_OAK
-          }
+          ranking: THREE_OAK
         }
       };
       const player_b = {
         hand: {
           ascendingValues: ["9", "9", "9", "T", "Q"],
           threeOfAKind: ["9"],
-          ranking: {
-            name: THREE_OAK
-          }
+          ranking: THREE_OAK
         }
       };
       expect(compareHands(player_a, player_b)).toEqual(WIN);
@@ -400,18 +328,14 @@ describe("UTIL: compareHands", () => {
         hand: {
           ascendingValues: ["2", "9", "9", "9", "T"],
           threeOfAKind: ["9"],
-          ranking: {
-            name: THREE_OAK
-          }
+          ranking: THREE_OAK
         }
       };
       const player_b = {
         hand: {
           ascendingValues: ["2", "9", "9", "9", "J"],
           threeOfAKind: ["9"],
-          ranking: {
-            name: THREE_OAK
-          }
+          ranking: THREE_OAK
         }
       };
       expect(compareHands(player_a, player_b)).toEqual(LOSS);
@@ -422,18 +346,14 @@ describe("UTIL: compareHands", () => {
         hand: {
           ascendingValues: ["2", "9", "9", "9", "J"],
           threeOfAKind: ["9"],
-          ranking: {
-            name: THREE_OAK
-          }
+          ranking: THREE_OAK
         }
       };
       const player_b = {
         hand: {
           ascendingValues: ["2", "9", "9", "9", "J"],
           threeOfAKind: ["9"],
-          ranking: {
-            name: THREE_OAK
-          }
+          ranking: THREE_OAK
         }
       };
       expect(compareHands(player_a, player_b)).toEqual(TIE);
@@ -446,18 +366,14 @@ describe("UTIL: compareHands", () => {
         hand: {
           ascendingValues: ["7", "8", "9", "T", "J"],
           straight: true,
-          ranking: {
-            name: STRAIGHT
-          }
+          ranking: STRAIGHT
         }
       };
       const player_b = {
         hand: {
           ascendingValues: ["6", "7", "8", "9", "T"],
           straight: true,
-          ranking: {
-            name: STRAIGHT
-          }
+          ranking: STRAIGHT
         }
       };
       expect(compareHands(player_a, player_b)).toEqual(WIN);
@@ -468,18 +384,14 @@ describe("UTIL: compareHands", () => {
         hand: {
           ascendingValues: ["7", "8", "9", "T", "J"],
           straight: true,
-          ranking: {
-            name: STRAIGHT
-          }
+          ranking: STRAIGHT
         }
       };
       const player_b = {
         hand: {
           ascendingValues: ["8", "9", "T", "J", "Q"],
           straight: true,
-          ranking: {
-            name: STRAIGHT
-          }
+          ranking: STRAIGHT
         }
       };
       expect(compareHands(player_a, player_b)).toEqual(LOSS);
@@ -490,18 +402,14 @@ describe("UTIL: compareHands", () => {
         hand: {
           ascendingValues: ["8", "9", "T", "J", "Q"],
           straight: true,
-          ranking: {
-            name: STRAIGHT
-          }
+          ranking: STRAIGHT
         }
       };
       const player_b = {
         hand: {
           ascendingValues: ["8", "9", "T", "J", "Q"],
           straight: true,
-          ranking: {
-            name: STRAIGHT
-          }
+          ranking: STRAIGHT
         }
       };
       expect(compareHands(player_a, player_b)).toEqual(TIE);
@@ -512,18 +420,14 @@ describe("UTIL: compareHands", () => {
         hand: {
           ascendingValues: ["T", "J", "Q", "K", "A"],
           straight: true,
-          ranking: {
-            name: STRAIGHT
-          }
+          ranking: STRAIGHT
         }
       };
       const player_b = {
         hand: {
           ascendingValues: ["A", "2", "3", "4", "5"],
           straight: true,
-          ranking: {
-            name: STRAIGHT
-          }
+          ranking: STRAIGHT
         }
       };
       expect(compareHands(player_a, player_b)).toEqual(WIN);
@@ -536,18 +440,14 @@ describe("UTIL: compareHands", () => {
         hand: {
           ascendingValues: ["2", "3", "4", "5", "K"],
           flush: true,
-          ranking: {
-            name: FLUSH
-          }
+          ranking: FLUSH
         }
       };
       const player_b = {
         hand: {
           ascendingValues: ["2", "3", "4", "5", "T"],
           flush: true,
-          ranking: {
-            name: FLUSH
-          }
+          ranking: FLUSH
         }
       };
       expect(compareHands(player_a, player_b)).toEqual(WIN);
@@ -558,18 +458,14 @@ describe("UTIL: compareHands", () => {
         hand: {
           ascendingValues: ["2", "3", "5", "8", "T"],
           flush: true,
-          ranking: {
-            name: FLUSH
-          }
+          ranking: FLUSH
         }
       };
       const player_b = {
         hand: {
           ascendingValues: ["2", "4", "5", "8", "T"],
           flush: true,
-          ranking: {
-            name: FLUSH
-          }
+          ranking: FLUSH
         }
       };
       expect(compareHands(player_a, player_b)).toEqual(LOSS);
@@ -580,18 +476,14 @@ describe("UTIL: compareHands", () => {
         hand: {
           ascendingValues: ["2", "4", "5", "8", "T"],
           flush: true,
-          ranking: {
-            name: FLUSH
-          }
+          ranking: FLUSH
         }
       };
       const player_b = {
         hand: {
           ascendingValues: ["2", "4", "5", "8", "T"],
           flush: true,
-          ranking: {
-            name: FLUSH
-          }
+          ranking: FLUSH
         }
       };
       expect(compareHands(player_a, player_b)).toEqual(TIE);
@@ -604,18 +496,14 @@ describe("UTIL: compareHands", () => {
         hand: {
           threeOfAKind: ["J"],
           pairs: ["2"],
-          ranking: {
-            name: FULL_HOUSE
-          }
+          ranking: FULL_HOUSE
         }
       };
       const player_b = {
         hand: {
           threeOfAKind: ["9"],
           pairs: ["2"],
-          ranking: {
-            name: FULL_HOUSE
-          }
+          ranking: FULL_HOUSE
         }
       };
       expect(compareHands(player_a, player_b)).toEqual(WIN);
@@ -626,18 +514,14 @@ describe("UTIL: compareHands", () => {
         hand: {
           threeOfAKind: ["J"],
           pairs: ["2"],
-          ranking: {
-            name: FULL_HOUSE
-          }
+          ranking: FULL_HOUSE
         }
       };
       const player_b = {
         hand: {
           threeOfAKind: ["Q"],
           pairs: ["2"],
-          ranking: {
-            name: FULL_HOUSE
-          }
+          ranking: FULL_HOUSE
         }
       };
       expect(compareHands(player_a, player_b)).toEqual(LOSS);
@@ -648,18 +532,14 @@ describe("UTIL: compareHands", () => {
         hand: {
           threeOfAKind: ["J"],
           pairs: ["7"],
-          ranking: {
-            name: FULL_HOUSE
-          }
+          ranking: FULL_HOUSE
         }
       };
       const player_b = {
         hand: {
           threeOfAKind: ["J"],
           pairs: ["2"],
-          ranking: {
-            name: FULL_HOUSE
-          }
+          ranking: FULL_HOUSE
         }
       };
       expect(compareHands(player_a, player_b)).toEqual(WIN);
@@ -670,18 +550,14 @@ describe("UTIL: compareHands", () => {
         hand: {
           threeOfAKind: ["J"],
           pairs: ["7"],
-          ranking: {
-            name: FULL_HOUSE
-          }
+          ranking: FULL_HOUSE
         }
       };
       const player_b = {
         hand: {
           threeOfAKind: ["J"],
           pairs: ["9"],
-          ranking: {
-            name: FULL_HOUSE
-          }
+          ranking: FULL_HOUSE
         }
       };
       expect(compareHands(player_a, player_b)).toEqual(LOSS);
@@ -692,18 +568,14 @@ describe("UTIL: compareHands", () => {
         hand: {
           threeOfAKind: ["Q"],
           pairs: ["2"],
-          ranking: {
-            name: FULL_HOUSE
-          }
+          ranking: FULL_HOUSE
         }
       };
       const player_b = {
         hand: {
           threeOfAKind: ["Q"],
           pairs: ["2"],
-          ranking: {
-            name: FULL_HOUSE
-          }
+          ranking: FULL_HOUSE
         }
       };
       expect(compareHands(player_a, player_b)).toEqual(TIE);
@@ -715,17 +587,13 @@ describe("UTIL: compareHands", () => {
       const player_a = {
         hand: {
           fourOfAKind: ["J"],
-          ranking: {
-            name: FOUR_OAK
-          }
+          ranking: FOUR_OAK
         }
       };
       const player_b = {
         hand: {
           fourOfAKind: ["3"],
-          ranking: {
-            name: FOUR_OAK
-          }
+          ranking: FOUR_OAK
         }
       };
       expect(compareHands(player_a, player_b)).toEqual(WIN);
@@ -735,17 +603,13 @@ describe("UTIL: compareHands", () => {
       const player_a = {
         hand: {
           fourOfAKind: ["4"],
-          ranking: {
-            name: FOUR_OAK
-          }
+          ranking: FOUR_OAK
         }
       };
       const player_b = {
         hand: {
           fourOfAKind: ["7"],
-          ranking: {
-            name: FOUR_OAK
-          }
+          ranking: FOUR_OAK
         }
       };
       expect(compareHands(player_a, player_b)).toEqual(LOSS);
@@ -756,18 +620,14 @@ describe("UTIL: compareHands", () => {
         hand: {
           ascendingValues: ["3", "3", "3", "3", "K"],
           fourOfAKind: ["3"],
-          ranking: {
-            name: FOUR_OAK
-          }
+          ranking: FOUR_OAK
         }
       };
       const player_b = {
         hand: {
           ascendingValues: ["3", "3", "3", "3", "7"],
           fourOfAKind: ["3"],
-          ranking: {
-            name: FOUR_OAK
-          }
+          ranking: FOUR_OAK
         }
       };
       expect(compareHands(player_a, player_b)).toEqual(WIN);
@@ -778,18 +638,14 @@ describe("UTIL: compareHands", () => {
         hand: {
           ascendingValues: ["3", "3", "3", "3", "5"],
           fourOfAKind: ["3"],
-          ranking: {
-            name: FOUR_OAK
-          }
+          ranking: FOUR_OAK
         }
       };
       const player_b = {
         hand: {
           ascendingValues: ["3", "3", "3", "3", "7"],
           fourOfAKind: ["3"],
-          ranking: {
-            name: FOUR_OAK
-          }
+          ranking: FOUR_OAK
         }
       };
       expect(compareHands(player_a, player_b)).toEqual(LOSS);
@@ -800,18 +656,14 @@ describe("UTIL: compareHands", () => {
         hand: {
           ascendingValues: ["3", "3", "3", "3", "7"],
           fourOfAKind: ["3"],
-          ranking: {
-            name: FOUR_OAK
-          }
+          ranking: FOUR_OAK
         }
       };
       const player_b = {
         hand: {
           ascendingValues: ["3", "3", "3", "3", "7"],
           fourOfAKind: ["3"],
-          ranking: {
-            name: FOUR_OAK
-          }
+          ranking: FOUR_OAK
         }
       };
       expect(compareHands(player_a, player_b)).toEqual(TIE);
@@ -825,9 +677,7 @@ describe("UTIL: compareHands", () => {
           ascendingValues: ["3", "4", "5", "6", "7"],
           straight: true,
           flush: true,
-          ranking: {
-            name: STRAIGHT_FLUSH
-          }
+          ranking: STRAIGHT_FLUSH
         }
       };
       const player_b = {
@@ -835,9 +685,7 @@ describe("UTIL: compareHands", () => {
           ascendingValues: ["2", "3", "4", "5", "6"],
           straight: true,
           flush: true,
-          ranking: {
-            name: STRAIGHT_FLUSH
-          }
+          ranking: STRAIGHT_FLUSH
         }
       };
       expect(compareHands(player_a, player_b)).toEqual(WIN);
@@ -849,9 +697,7 @@ describe("UTIL: compareHands", () => {
           ascendingValues: ["3", "4", "5", "6", "7"],
           straight: true,
           flush: true,
-          ranking: {
-            name: STRAIGHT_FLUSH
-          }
+          ranking: STRAIGHT_FLUSH
         }
       };
       const player_b = {
@@ -859,9 +705,7 @@ describe("UTIL: compareHands", () => {
           ascendingValues: ["8", "9", "T", "J", "Q"],
           straight: true,
           flush: true,
-          ranking: {
-            name: STRAIGHT_FLUSH
-          }
+          ranking: STRAIGHT_FLUSH
         }
       };
       expect(compareHands(player_a, player_b)).toEqual(LOSS);
@@ -873,9 +717,7 @@ describe("UTIL: compareHands", () => {
           ascendingValues: ["4", "5", "6", "7", "8"],
           straight: true,
           flush: true,
-          ranking: {
-            name: STRAIGHT_FLUSH
-          }
+          ranking: STRAIGHT_FLUSH
         }
       };
       const player_b = {
@@ -883,9 +725,7 @@ describe("UTIL: compareHands", () => {
           ascendingValues: ["4", "5", "6", "7", "8"],
           straight: true,
           flush: true,
-          ranking: {
-            name: STRAIGHT_FLUSH
-          }
+          ranking: STRAIGHT_FLUSH
         }
       };
       expect(compareHands(player_a, player_b)).toEqual(TIE);
@@ -899,9 +739,7 @@ describe("UTIL: compareHands", () => {
           ascendingValues: ["T", "J", "Q", "K", "A"],
           straight: true,
           flush: true,
-          ranking: {
-            name: ROYAL_FLUSH
-          }
+          ranking: ROYAL_FLUSH
         }
       };
       const player_b = {
@@ -909,9 +747,7 @@ describe("UTIL: compareHands", () => {
           ascendingValues: ["T", "J", "Q", "K", "A"],
           straight: true,
           flush: true,
-          ranking: {
-            name: ROYAL_FLUSH
-          }
+          ranking: ROYAL_FLUSH
         }
       };
       expect(compareHands(player_a, player_b)).toEqual(TIE);
@@ -922,16 +758,12 @@ describe("UTIL: compareHands", () => {
     it("should return an error if ranking name is not recognised", () => {
       const player_a = {
         hand: {
-          ranking: {
-            name: undefined
-          }
+          ranking: undefined
         }
       };
       const player_b = {
         hand: {
-          ranking: {
-            name: undefined
-          }
+          ranking: undefined
         }
       };
       expect(() => compareHands(player_a, player_b)).toThrow();
