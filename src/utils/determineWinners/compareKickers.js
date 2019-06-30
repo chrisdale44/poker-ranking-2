@@ -6,8 +6,8 @@ export default function compareKickers(cards_a, cards_b) {
   let result = 3;
   while (i >= 0 && result === 3) {
     result = compareValues(
-      CARD_VALUES.indexOf(cards_a[i].value),
-      CARD_VALUES.indexOf(cards_b[i].value)
+      CARD_VALUES.indexOf(cards_a[i]),
+      CARD_VALUES.indexOf(cards_b[i])
     );
     i--;
   }

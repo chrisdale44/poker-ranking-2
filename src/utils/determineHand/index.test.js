@@ -1,4 +1,7 @@
 import determineHand from "./index";
+import checkForLowAce from "./checkForLowAce";
+
+jest.mock("./checkForLowAce");
 
 const mockCards = [
   { value: "Q", suit: "SPADES" },
@@ -19,7 +22,22 @@ describe("UTIL: determineHand", () => {
       ranking: {
         name: "high card",
         score: 0
-      }
+      },
+      ascendingValues: ["4", "9", "T", "Q", "A"]
+    });
+  });
+
+  describe("if it is a straight containing an Ace", () => {
+    it("should check for low Ace straight", () => {
+      const mockCards = [
+        { value: "Q", suit: "SPADES" },
+        { value: "T", suit: "CLUBS" },
+        { value: "J", suit: "CLUBS" },
+        { value: "K", suit: "DIAMONDS" },
+        { value: "A", suit: "HEARTS" }
+      ];
+      determineHand(mockCards);
+      expect(checkForLowAce).toHaveBeenCalled();
     });
   });
 });

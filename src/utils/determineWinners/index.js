@@ -13,7 +13,7 @@ export default function determineWinners(players) {
     const winningPlayers = winningPlayerIds.map(id => {
       return players.find(x => x.id === id);
     });
-    if (doCardsMatch(winningPlayers.map(player => player.cards))) {
+    if (doCardsMatch(winningPlayers.map(player => player.ascendingValues))) {
       return winningPlayerIds;
     }
 
